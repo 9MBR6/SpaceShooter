@@ -1,16 +1,18 @@
 extends Node
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+var main_node setget , _get_main_node
+var view_size setget , _get_view_size
 
+func _get_main_node():
+	var root = get_tree().get_root()
+	return root.get_child(root.get_child_count()-1)
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func _get_view_size():
+	return get_tree().get_root().get_visible_rect().size
 
+func choice_list(list):
+	randomize()
+	var random_index = randi() % list.size()
+	return list[random_index]
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
