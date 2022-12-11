@@ -1,5 +1,9 @@
 extends Area2D
 
+
+func setup(pos):
+	position = pos
+
 func _input(event):
 	if event is InputEventScreenDrag:
 		#position = event.position
