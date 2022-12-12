@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://weapons/Lase/Lase.tscn" type="PackedScene" id=1]
+[ext_resource path="res://weapons/Lase/LaseEnemy.gd" type="Script" id=2]
+[ext_resource path="res://Assets/sprites/laser.png" type="Texture" id=3]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 2.0
+height = 42.0
+
+[node name="LaseEnemy" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+velocity = Vector2( 0, 512 )
+
+[node name="Sprite" parent="." index="0"]
+rotation = 1.5708
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource( 1 )
+
+[node name="VisibilityNotifier2D" parent="." index="2"]
+position = Vector2( -2.86102e-07, 7.15256e-07 )
+scale = Vector2( 0.2, 2.2 )
+
+[connection signal="area_entered" from="." to="." method="_on_LaseEnemy_area_entered"]

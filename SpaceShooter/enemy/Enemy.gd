@@ -5,7 +5,10 @@ export var velocity = Vector2()
 export var armor = 4 setget _set_armor
 
 func _set_armor(value):
-	pass
+	armor = value
+	if armor <=0:
+		queue_free()
+		print("enemigo eliminado")
 
 func _physics_process(delta):
 	translate(velocity*delta)

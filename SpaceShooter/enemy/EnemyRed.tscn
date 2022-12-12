@@ -10,6 +10,7 @@ height = 90.0
 
 [node name="Enemy" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+armor = 3
 
 [node name="Sprite" parent="." index="0"]
 rotation = 3.14159
