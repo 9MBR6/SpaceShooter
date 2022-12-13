@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://PowerUps/PowerUp.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/sprites/shield.png" type="Texture" id=2]
+[ext_resource path="res://PowerUps/PowerUpShield.gd" type="Script" id=3]
+[ext_resource path="res://weapons/Shields/Shield.tscn" type="PackedScene" id=4]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 40.0
+
+[node name="PowerUpShield" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+velocity = Vector2( 0, 400 )
+scene_shield = ExtResource( 4 )
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource( 1 )
+
+[connection signal="area_entered" from="." to="." method="_on_PowerUpShield_area_entered"]

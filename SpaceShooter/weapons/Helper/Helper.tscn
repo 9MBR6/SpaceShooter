@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://weapons/Helper/Helper.gd" type="Script" id=1]
+[ext_resource path="res://weapons/Lase/LasePlayer.tscn" type="PackedScene" id=2]
+
+[node name="Helper" type="Node2D"]
+script = ExtResource( 1 )
+scene_laser = ExtResource( 2 )
+
+[node name="LaserCenter" type="Position2D" parent="."]
+position = Vector2( 0, -71 )
+
+[node name="LaserLeft" type="Position2D" parent="."]
+position = Vector2( -43, -5 )
+
+[node name="LaserRigth" type="Position2D" parent="."]
+position = Vector2( 45, -4 )
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="ShootTimer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="ShootTimer" to="." method="_on_ShootTimer_timeout"]

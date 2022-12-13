@@ -18,6 +18,10 @@ func _physics_process(delta):
 
 
 func _on_Enemy_area_entered(area):
+	if area.is_in_group("shields"):
+		queue_free()
+		print("Colisión con enemigo no se sufrieron daños")
+	
 	if area.is_in_group("player"):
 		area.armor-=1
 		queue_free()
