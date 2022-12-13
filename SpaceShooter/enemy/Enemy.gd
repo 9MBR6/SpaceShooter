@@ -15,3 +15,10 @@ func _physics_process(delta):
 	
 	if position.y -32 >= Utils.view_size.y:
 		queue_free()
+
+
+func _on_Enemy_area_entered(area):
+	if area.is_in_group("player"):
+		area.armor-=1
+		queue_free()
+		print("Colisión con enemigo")
