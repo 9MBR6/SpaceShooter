@@ -10,6 +10,7 @@ func _ready():
 	$SpawnTimer.start()
 
 func spawn():
+	print("prueba de repositorio")
 	var enemy = Utils.choice_list(enemies).instance()
 	var pos = Vector2()
 	
