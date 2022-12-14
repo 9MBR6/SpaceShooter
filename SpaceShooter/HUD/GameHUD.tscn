@@ -1,0 +1,110 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Assets/fonts/m5x7.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Assets/sprites/pause.png" type="Texture" id=2]
+[ext_resource path="res://Assets/sprites/button_hover.png" type="Texture" id=3]
+[ext_resource path="res://Assets/sprites/button_normal.png" type="Texture" id=4]
+[ext_resource path="res://Assets/sprites/button_pressed.png" type="Texture" id=5]
+[ext_resource path="res://Assets/sprites/heart.png" type="Texture" id=6]
+[ext_resource path="res://HUD/GameHUD.gd" type="Script" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 64
+font_data = ExtResource( 1 )
+
+[node name="GameHUD" type="CanvasLayer"]
+pause_mode = 2
+script = ExtResource( 7 )
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+anchor_right = 1.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+
+[node name="HBox" type="HBoxContainer" parent="Control/MarginContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 710.0
+margin_bottom = 90.0
+
+[node name="HeartImg" type="TextureRect" parent="Control/MarginContainer/HBox"]
+margin_right = 80.0
+margin_bottom = 80.0
+texture = ExtResource( 6 )
+
+[node name="HeartLable" type="Label" parent="Control/MarginContainer/HBox/HeartImg"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+custom_fonts/font = SubResource( 1 )
+text = "4"
+align = 1
+valign = 1
+
+[node name="ScoreLable" type="Label" parent="Control/MarginContainer/HBox"]
+margin_left = 84.0
+margin_top = 14.0
+margin_right = 608.0
+margin_bottom = 65.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 6.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+custom_fonts/font = SubResource( 1 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="PauseButton" type="TextureButton" parent="Control/MarginContainer/HBox"]
+margin_left = 612.0
+margin_right = 700.0
+margin_bottom = 80.0
+size_flags_horizontal = 3
+texture_normal = ExtResource( 2 )
+expand = true
+stretch_mode = 5
+
+[node name="MenuButton" type="TextureButton" parent="Control"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -115.5
+margin_top = -41.0
+margin_right = 115.5
+margin_bottom = 41.0
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 3 )
+
+[node name="MenuLabel" type="Label" parent="Control/MenuButton"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+custom_fonts/font = SubResource( 1 )
+text = "Menu"
+align = 1
+valign = 1
+__meta__ = {
+"_editor_description_": ""
+}
+
+[connection signal="pressed" from="Control/MarginContainer/HBox/PauseButton" to="." method="_on_PauseButton_pressed"]
+[connection signal="pressed" from="Control/MenuButton" to="." method="_on_MenuButton_pressed"]

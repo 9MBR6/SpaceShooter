@@ -1,15 +1,15 @@
 extends Area2D
 
-#esto es solo una prueba para ver sis e sube a github correctamente!!!!!
-
 export var velocity = Vector2()
 export var armor = 4 setget _set_armor
 
 func _set_armor(value):
 	armor = value
 	if armor <=0:
-		queue_free()
+		Utils.main_node.get_node("GameHUD").score +=5
 		print("enemigo eliminado")
+		queue_free()
+		
 
 func _physics_process(delta):
 	translate(velocity*delta)

@@ -1,5 +1,7 @@
 extends Area2D
 
+signal heart_change
+
 export (PackedScene) var scene_player_laser
 
 export (int) var armor = 4 setget _set_armor
@@ -28,6 +30,7 @@ func shoot():
 
 func _set_armor(value):
 	armor = value
+	emit_signal("heart_change", value)
 	if armor <= 0:
 		print("player eliminado")
 		queue_free()
