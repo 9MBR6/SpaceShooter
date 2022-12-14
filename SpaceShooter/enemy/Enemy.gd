@@ -1,5 +1,6 @@
 extends Area2D
 
+#esto es solo una prueba para ver sis e sube a github correctamente!!!!!
 
 export var velocity = Vector2()
 export var armor = 4 setget _set_armor
