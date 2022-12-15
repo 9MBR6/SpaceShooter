@@ -1,0 +1,20 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Assets/sounds/powerup.wav" type="AudioStream" id=1]
+[ext_resource path="res://Assets/sounds/hit_enemy.wav" type="AudioStream" id=2]
+[ext_resource path="res://Assets/sounds/laser_ship.wav" type="AudioStream" id=3]
+[ext_resource path="res://Assets/sounds/hit_ship.wav" type="AudioStream" id=4]
+[ext_resource path="res://Assets/sounds/music.ogg" type="AudioStream" id=5]
+[ext_resource path="res://Assets/sounds/laser_enemy.wav" type="AudioStream" id=6]
+[ext_resource path="res://Assets/sounds/explosion.wav" type="AudioStream" id=7]
+[ext_resource path="res://audio/audio.gd" type="Script" id=8]
+
+[node name="audio" type="Node"]
+script = ExtResource( 8 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -10.0
+
+[node name="ResourcePreloader" type="ResourcePreloader" parent="."]
+resources = [ PoolStringArray( "explosion", "hit_enemy", "hit_ship", "laser_enemy", "laser_ship", "powerup" ), [ ExtResource( 7 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 3 ), ExtResource( 1 ) ] ]

@@ -11,4 +11,5 @@ func _on_PowerUpShield_area_entered(area):
 		var shield = scene_shield.instance()
 		area.call_deferred("add_child",shield)
 		shield.setup(5)
+		Audio.play("powerup",15)
 		queue_free()

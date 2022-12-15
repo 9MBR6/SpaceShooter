@@ -17,6 +17,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Utils="*res://libs/utils.gd"
+Audio="*res://audio/audio.tscn"
 
 [display]
 

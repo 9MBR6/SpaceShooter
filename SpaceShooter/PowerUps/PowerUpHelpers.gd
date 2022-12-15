@@ -9,4 +9,5 @@ func _on_PowerUpHelpers_area_entered(area):
 		var helper = scene_helper.instance()
 		area.call_deferred("add_child",helper)
 		helper.setup(5)
+		Audio.play("powerup",15)
 		queue_free()
