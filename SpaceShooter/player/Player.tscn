@@ -7,7 +7,7 @@
 [ext_resource path="res://effects/explosions.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 59.0
+radius = 48.0104
 
 [node name="Player" type="Area2D" groups=["player"]]
 script = ExtResource( 2 )

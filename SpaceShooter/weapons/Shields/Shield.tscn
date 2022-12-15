@@ -4,7 +4,7 @@
 [ext_resource path="res://Assets/sprites/bubble.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 108.296
+radius = 161.028
 
 [node name="Shield" type="Area2D" groups=["shields"]]
 script = ExtResource( 1 )

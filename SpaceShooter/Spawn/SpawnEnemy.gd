@@ -19,7 +19,7 @@ func spawn():
 	enemy.position = pos
 	
 	add_child(enemy)
-	$SpawnTimer.wait_time = rand_range(0.5, 2.0)
+	$SpawnTimer.wait_time = rand_range(0.25, 0.7)
 	
 	
 	

@@ -25,4 +25,6 @@ func _on_PauseButton_pressed():
 
 
 func _on_MenuButton_pressed():
-	pass # Replace with function body.
+	if get_tree().paused:
+		get_tree().paused = not get_tree().paused
+	get_tree().change_scene("res://HUD/Main.tscn")
